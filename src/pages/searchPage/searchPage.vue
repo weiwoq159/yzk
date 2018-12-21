@@ -1,8 +1,8 @@
 <template>
   <div class="searchPage">
     <search-header></search-header>
-    <search-input></search-input>
-    <search-result></search-result>
+    <search-input @listenSonMes='showContent'></search-input>
+    <search-result :list="list"></search-result>
   </div>
 </template>
 
@@ -17,9 +17,30 @@ export default {
     searchInput,
     searchResult
   },
+  data () {
+    return {
+      list: [],
+      content: '',
+      input: ''
+    }
+  },
+  methods: {
+    changeSeach (res) {
+      console.log(res.data.data)
+      this.list = res.data.data
+    },
+    showContent (data) {
+      this.content = data
+    }
+  },
   mounted () {
-    let name = this.$route.params.name
-    console.log(name)
+    // setTimeout(function () {
+    //   this.input = this.route.params.name
+    //   console.log(this.input)
+    // }, 0)
+    this.input = this.$route.params.name
+    console.log(this.input)
+    // this.axios.post('api/book/listPage', {pageNum: '1', pageSize: '4', content: this.input}).then(this.changeSeach)
   }
 }
 </script>

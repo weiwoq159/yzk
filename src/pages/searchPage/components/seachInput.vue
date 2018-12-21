@@ -11,7 +11,7 @@
       </el-select>
     </div>
     <div class="right">
-      <el-input v-model="input" placeholder="请输入内容"></el-input>
+      <el-input v-model="input" placeholder="请输入内容" @change="sendMesToHome()"></el-input>
       <button class='seach_button'>
         <i class='iconfont icon-search'></i>
       </button>
@@ -46,6 +46,11 @@ export default {
       }],
       value: '',
       input: ''
+    }
+  },
+  methods: {
+    sendMesToHome (item) {
+      // this.axios.post('api/book/listPage', {category: thisvalue}).then(this.changeSeach)
     }
   }
 

@@ -10,7 +10,10 @@
     <main-header></main-header>
     <labe-list></labe-list>
     <keep-alive>
-      <news :list='list'></news>
+      <news
+        :list='list'
+        :bookId='bookId'
+      ></news>
     </keep-alive>
     <reply></reply>
   </div>
@@ -33,11 +36,14 @@ export default {
   },
   data () {
     return {
-      list: ''
+      list: '',
+      bookId: ''
     }
   },
   activated () {
+    this.bookId = this.$route.params.bookId
     this.list = this.$route.params.name
+    console.log(this.bookId)
   }
 }
 </script>

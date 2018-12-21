@@ -1,7 +1,7 @@
 <template>
   <div class="newsList">
     <p class="newsTitle">精选推荐</p>
-    <div :class="['news', index==list.length-1 ? 'lastNews' : '' ]" v-for="(item, index) in list" :key="index">
+    <div :class="['news', index==list.length-1 ? 'lastNews' : '' ]" v-for="(item, index) in list.data" :key="index">
       <router-link :to="{name:'AFDetail',params :{bookId:item.id, name:item}}">
         <div class="title">
           <div class="essence" v-if="item.essence===1">
@@ -11,9 +11,7 @@
           <p class="titleText">{{item.title}}</p>
         </div>
         <div class="newsText">
-          <p>
-            {{item.content}}
-          </p>
+          <p v-html='item.content'></p>
         </div>
         <div class="newsFooter">
           <span>{{item.tags}}</span>
@@ -24,11 +22,11 @@
       <div class="newsBottom">
         <div class="message">
           <i class='iconfont icon-liuyan'></i>
-          {{item.replay}}
+          {{item.commentNum}}
         </div>
         <div :class="item.isStar ? 'starActive' : 'star'" @click='changeColor(item)'>
           <i class='iconfont icon-heart'></i>
-          {{item.mark}}
+          {{item.liked}}
         </div>
       </div>
     </div>
@@ -43,9 +41,9 @@ export default {
     changeColor (item) {
       item.isStar = !item.isStar
       if (item.isStar) {
-        item.mark++
+        item.liked++
       } else {
-        item.mark--
+        item.liked--
       }
     }
   }

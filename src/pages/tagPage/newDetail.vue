@@ -22,7 +22,8 @@ export default {
     searchInput,
     labeList,
     news,
-    reply
+    reply,
+    bookId: ''
   },
   data () {
     return {
@@ -30,7 +31,9 @@ export default {
     }
   },
   activated () {
+    this.bookId = this.$route.params.bookId
     this.list = this.$route.params.name
+    console.log(this.bookId)
   }
 }
 </script>

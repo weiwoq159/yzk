@@ -26,7 +26,7 @@ export default {
     }
   },
   mounted () {
-    this.axios.post('http://106.39.102.148:9998/book/web/api/book/searchHome', {category: 1}).then(this.changeList)
+    this.axios.post('/book/web/api/book/searchHome', {category: '1'}).then(this.changeList)
   }
 }
 </script>

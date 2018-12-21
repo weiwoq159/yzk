@@ -19,8 +19,17 @@ export default {
         case '办税服务' :
           value.img = 'static/mock/revenue.png'
           break
-        case '法律法規' :
+        case '法律法规' :
           value.img = './static/mock/bg.png'
+          break
+        case '权威解读' :
+          value.img = 'static/mock/qwjd.png'
+          break
+        case '办税指南' :
+          value.img = 'static/mock/bszn.png'
+          break
+        case '政策解读' :
+          value.img = 'static/mock/zcjd.png'
           break
       }
       return value

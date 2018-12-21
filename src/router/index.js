@@ -17,7 +17,10 @@ export default new Router({
     {
       path: '/',
       name: 'homePage',
-      component: homePage
+      component: homePage,
+      meta: {
+        title: '燚智库'
+      }
     },
     {
       path: '/searchPage',

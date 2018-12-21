@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     search () {
-      this.$router.push({name: 'searchPage', params: {name: 'maqiang'}})
+      this.$router.push({name: 'searchPage', params: {name: this.input5}})
     }
   }
 }

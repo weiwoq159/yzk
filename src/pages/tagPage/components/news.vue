@@ -2,22 +2,22 @@
   <div class='news'>
     <p class="title">{{list.title}}</p>
     <div class="detail">
-      <p>来源:{{list.name}}</p>
-      <p>更新时间:{{list.date}}</p>
+      <p>来源:{{list.source}}</p>
+      <p>更新时间:{{list.contentTime | dateShow}}</p>
     </div>
     <div class="text">
-      <p>{{list.text}}</p>
+      <p v-html='list.content'></p>
     </div>
     <div class="bottom">
       <p class='clickNum'>点击量:{{list.clicks}}</p>
       <div class="newsBottom">
         <div class="message">
           <i class='iconfont icon-liuyan'></i>
-          <span>{{list.replay}}</span>
+          <span>{{list.commentNum}}</span>
         </div>
         <div :class="list.isStar ? 'starActive' : 'star'" @click='changeColor(list)'>
           <i class='iconfont icon-heart'></i>
-          <span>{{list.mark}}</span>
+          <span>{{list.liked}}</span>
         </div>
       </div>
     </div>
@@ -27,21 +27,35 @@
 <script>
 export default {
   name: 'news',
-  props: ['list'],
+  props: ['list', 'bookId'],
   beforeCreate () {
     if (this.$route.params.name === undefined) {
       this.$router.push('/tag/af')
+    }
+  },
+  data () {
+    return {
+      arr: [1, 2, 3, 3]
     }
   },
   methods: {
     changeColor (item) {
       item.isStar = !item.isStar
       if (item.isStar) {
-        item.mark++
+        item.liked++
       } else {
-        item.mark--
+        item.liked--
+        if (item.liked === 0) {
+          item.liked = null
+        }
       }
     }
+  },
+  activated () {
+    var that = this
+    setTimeout(function () {
+      this.axios.post('/book/web/api/comment/commentShow', {bookId: that.bookId}).then(this.changeNews)
+    }, 0)
   }
 }
 </script>

@@ -5,14 +5,14 @@
         <el-option
           v-for="item in options"
           :key="item.value"
-          :label="item.provinceName"
-          :value="item.provinceName">
+          :label="item.name"
+          :value="item.id">
         </el-option>
       </el-select>
     </div>
     <div class="right">
       <el-input v-model="input" placeholder="请输入内容"></el-input>
-      <button class='seach_button'>
+      <button class='seach_button' @click="sub(value)">
         <i class='iconfont icon-search'></i>
       </button>
     </div>
@@ -35,12 +35,26 @@ export default {
   },
   methods: {
     changeList (res) {
-      console.log(res.data.provinces)
-      this.options = res.data.provinces
+      console.log(res)
+      this.options = res.data
+    },
+    // changeSeach (res) {
+    //   this.$router.push()
+    // },
+    sub () {
+      this.axios.post('/book/web/api/book/listPage', {
+        category: '1',
+        content: this.input,
+        areaId: this.value,
+        pageNum: '1',
+        pageSize: '4'
+      }).then(this.changeSeach)
+      // this.$router.push()
+      console.log(this.value)
     }
   },
   mounted () {
-    this.axios.post('./static/mock/province.json').then(this.changeList)
+    this.axios.get('./static/mock/address.json').then(this.changeList)
   }
 
 }
