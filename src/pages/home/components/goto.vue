@@ -48,9 +48,13 @@ ul
   justify-content: space-around
   padding: 0 .50rem
   li
-    padding 0 .04rem
     font-size: .12rem;
-    border-left:1px solid #aaa
+    padding-left .1rem
+    border-left: 1px solid #333
     a
       color:$link
+    div
+      width 1px;
+      height: 100%
+      background: #000;
 </style>

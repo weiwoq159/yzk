@@ -15,7 +15,9 @@
         :bookId='bookId'
       ></news>
     </keep-alive>
-    <reply></reply>
+    <reply
+      :bookId='bookId'
+    ></reply>
   </div>
 </template>
 

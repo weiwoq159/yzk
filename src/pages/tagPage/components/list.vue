@@ -19,17 +19,7 @@
 <script>
 export default {
   name: 'list',
-  props: ['list', 'height'],
-  computed: {
-    ppp () {
-      var b = this.list
-      return b
-    }
-  },
-  mounted () {
-    console.log(this.list)
-    console.log(this.ppp)
-  }
+  props: ['list', 'height']
 }
 </script>
 

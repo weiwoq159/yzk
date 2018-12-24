@@ -1,14 +1,14 @@
 <template>
   <div class="bottomTemp">
     <button class='release'>
-      <router-link to='/'>
+      <router-link to='/release'>
         发布精选
       </router-link>
     </button>
     <button class='hrSolve'>
-      <router-link to='/'>
+      <a href='http://www.1boyun.com/'>
         人力资源解决方案
-      </router-link>
+      </a>
     </button>
   </div>
 </template>

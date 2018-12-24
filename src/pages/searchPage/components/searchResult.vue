@@ -12,8 +12,7 @@
             <p class="titleText">{{item.title}}</p>
           </div>
           <div class="newsText">
-            <p>
-              {{item.content}}
+            <p v-html='item.content'>
             </p>
           </div>
           <div class="newsFooter">
@@ -129,7 +128,7 @@ export default {
   background: #c400000;
   display inline
   margin-right 10px;
-  min-width 52px;
+  min-width 46px;
 .titleText
   font-size: 14px;
 .newsText p

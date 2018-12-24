@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     changeSeach (res) {
-      console.log(res.data.data)
+      console.log(res)
       this.list = res.data.data
     },
     showContent (data) {
@@ -40,7 +40,7 @@ export default {
     // }, 0)
     this.input = this.$route.params.name
     console.log(this.input)
-    // this.axios.post('api/book/listPage', {pageNum: '1', pageSize: '4', content: this.input}).then(this.changeSeach)
+    this.axios.post('http://10.8.21.133:8098/web/api/book/searcContent', {pageNum: '1', pageSize: '4', content: this.input}).then(this.changeSeach)
   }
 }
 </script>

@@ -50,24 +50,18 @@ export default {
         }
       }
     }
-  },
-  activated () {
-    var that = this
-    setTimeout(function () {
-      this.axios.post('/book/web/api/comment/commentShow', {bookId: that.bookId}).then(this.changeNews)
-    }, 0)
   }
 }
 </script>
 
 <style scoped lang='stylus'>
 .news
-  padding:.1rem .15rem
+  padding:.3rem .15rem
   .title
     text-align center
     font-size: .14rem;
     color:#333;
-    margin-bottom: .05rem
+    margin-bottom: .1rem
   .detail
     display: flex;
     justify-content space-around;
@@ -82,7 +76,7 @@ export default {
       line-height 1.5
   .bottom
     display: flex
-    justify-content space-around
+    justify-content space-between
     align-items center
     .clickNum
       margin-top 7px;

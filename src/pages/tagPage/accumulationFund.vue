@@ -7,6 +7,7 @@
 */
 <template>
   <div class="fund">
+    <AFPic :news='news'></AFPic>
     <newsList
       :list="list"
       :page="page"
@@ -16,36 +17,43 @@
 </template>
 
 <script>
-import bottomTemp from './components/bottomTemp'
+import AFPic from '@/pages/accumulationFund/components/AFPic'
 import newsList from './components/newsList'
 import keybord from './components/keybord'
 export default {
   name: 'accumulationFund',
   components: {
-    bottomTemp,
     newsList,
-    keybord
+    keybord,
+    AFPic
   },
   data () {
     return {
       list: [],
-      page: 'af'
+      page: 'af',
+      news: ''
     }
   },
   methods: {
-    changeNews (res) {
+    fundHomeDate (res) {
       // this.list = res.data.data.listPageBookVO
-      console.log(res.data.data)
+      console.log(res.data)
       this.list = res.data
+    },
+    fundHomeNews (res) {
+      this.news = res.data.data
     }
   },
-  // 获取新闻列表页面
+  // 获取公积金新闻列表页面
   mounted () {
-    this.axios.post('/book/web/api/fund/fundHomeDate', {pageNum: '1', pageSize: '4', category: '4'}).then(this.changeNews)
+    this.axios.post('/book/web/api/fund/fundHomeNews', {}).then(this.fundHomeNews)
+    this.axios.post('/book/web/api/fund/fundHomeDate', {pageNum: '1', pageSize: '4', category: '4'}).then(this.fundHomeDate)
   }
 }
 </script>
 
 <style scoped>
-
+.fund{
+  padding:12px;
+}
 </style>

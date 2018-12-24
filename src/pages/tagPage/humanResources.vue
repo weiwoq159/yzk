@@ -21,6 +21,7 @@ export default {
   },
   methods: {
     changeList (res) {
+      console.log(res)
       this.list = res.data.data
       api.checkImg(this.list)
     }

@@ -10,6 +10,7 @@ import security from '../pages/tagPage/security'
 import selected from '../pages/tagPage/selected'
 import newDetail from '../pages/tagPage/newDetail'
 import AFDetail from '../pages/tagPage/AFDetail'
+import Release from '../pages/release/release'
 Vue.use(Router)
 
 export default new Router({
@@ -61,6 +62,11 @@ export default new Router({
       path: '/tag/af/newDetail/:bookId',
       name: 'AFDetail',
       component: AFDetail
+    },
+    {
+      path: '/release',
+      name: 'Release',
+      component: Release
     }
   ]
 })

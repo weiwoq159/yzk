@@ -76,7 +76,7 @@ export default {
   background: #c400000;
   display inline
   margin-right 10px;
-  min-width 52px;
+  min-width 46px;
 .titleText
   font-size: 14px;
 .newsText p

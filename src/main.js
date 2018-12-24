@@ -10,6 +10,9 @@ import 'styles/fonts/reset.css'
 import 'styles/fonts/iconfont.css'
 import filter from './filter'
 import store from '@/store'
+import Vconsole from 'vconsole'
+let vConsole = new Vconsole()
+export default vConsole
 Vue.prototype.axios = axios
 Vue.config.productionTip = false
 Vue.use(elementUi)

@@ -47,6 +47,7 @@
 import api from '@/api/api'
 export default {
   name: 'reply',
+  props: ['bookId'],
   data () {
     return {
       sort: [{
@@ -63,8 +64,7 @@ export default {
         id: 3
       }],
       highLight: 0,
-      reply: {},
-      bookId: 1
+      reply: {}
     }
   },
   methods: {
@@ -102,8 +102,12 @@ export default {
       this.reply = res.data.data.sort(api.time)
     }
   },
-  mounted () {
-    this.axios.post('http://10.8.21.4:8098/web/api/comment/commentShow', {bookId: 1}).then(this.changeReply)
+  watch: {
+    bookId (newVal, oldVal) {
+      console.log(newVal)
+      this.axios.post('/book/web/api/comment/commentShow', {bookId: newVal}).then(this.changeReply)
+      // this.axios.post('http://10.8.21.88:8098/web/api/comment/commentShow', {bookId: newVal}).then(this.changeReply)
+    }
   }
 }
 </script>

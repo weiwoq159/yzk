@@ -35,5 +35,20 @@ export default {
       return value
     })
     console.log(listArr)
+  },
+  checkAFPic (that) {
+    var listArr = that.map(function (value) {
+      console.log(value)
+      switch (value.classify) {
+        case '办税服务' :
+          value.img = 'static/mock/afPic1.png'
+          break
+        case '法律法规' :
+          value.img = 'static/mock/afPic2.png'
+          break
+      }
+      return value
+    })
+    console.log(listArr)
   }
 }
